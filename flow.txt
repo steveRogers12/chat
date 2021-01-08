@@ -1,0 +1,41 @@
+yum -y check-update
+
+
+cat << EOF | tee -a /etc/yum.repos.d/mongodb-org-4.0.repo
+[mongodb-org-4.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/4.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
+EOF
+
+
+yum install -y curl && curl -sL https://rpm.nodesource.com/setup_8.x | bash -
+
+yum install -y gcc-c++ make mongodb-org nodejs
+
+yum install -y epel-release && yum install -y GraphicsMagick 
+
+npm install -g inherits n && n 8.11.4 
+
+下载主程序并解压：
+
+curl -L https://releases.rocket.chat/latest/download -o /tmp/rocket.chat.tgz
+
+tar -xzf /tmp/rocket.chat.tgz -C /tmp 
+
+配置数据库相关内容：
+
+sed -i "s/^#  engine:/  engine: mmapv1/"  /etc/mongod.conf
+
+sed -i "s/^#replication:/replication:\n  replSetName: rs01/" /etc/mongod.conf
+
+systemctl enable mongod && systemctl start mongod
+
+mongo --eval "printjson(rs.initiate())"
+
+
+最后设定开机自启并启动主程序，就完成了：
+
+systemctl enable rocketchat && systemctl start rocketchat
