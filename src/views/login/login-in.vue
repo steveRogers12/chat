@@ -1,21 +1,18 @@
 <template>
-    <div>
-        <p>1111</p>
-        <p>1111</p>
-        <p>1111</p>
+    <div class="login">
+        login
     </div>
 </template>
 <script>
 export default {
     name: 'login-in',
-    data() {
+    // data() {
 
-    }
+    // }
 }
 </script>
 <style lang="scss">
-    p {
-        color: #f00;
-        font-size: 18px;
+    .login {
+        background-color: #f00;
     }
 </style>
