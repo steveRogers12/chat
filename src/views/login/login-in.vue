@@ -7,11 +7,12 @@
         <input type="number" placeholder="手机号码" v-model="phone" />
       </div>
       <button class="btn" @click="getCode()">获取手机验证码</button>
-      <p class="pwd">密码登录</p>
+      <p class="pwd" @click="$router.push('/chat')">密码登录</p>
     </div>
     <div v-if="this.step === 2" class="login-2">
       <p class="title">验证码已发送至</p>
       <p class="tel">{{phone}}</p>
+      <input type="number" maxlength="4">
     </div>
   </div>
 </template>
