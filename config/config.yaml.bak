@@ -1,0 +1,77 @@
+app:
+  logFile: log/gin.log
+  httpPort: 8080
+  webSocketPort: 8089
+  rpcPort: 9001
+  pprofPort: 6060
+  httpUrl: 127.0.0.1:8080
+  webSocketUrl:  127.0.0.1:8089
+
+redis:
+  addr: "47.244.12.94:3333"
+  password: "lasd132"
+  DB: 0
+  poolSize: 30
+  minIdleConns: 30
+
+sms:
+  url: "http://sh2.cshxsp.com/sms.aspx"
+  account: "gs007"
+  password: "gs007675"
+
+mongod-master:
+  addr: "47.244.12.94"
+  port: 27017
+  dbname: "huohu"
+  username: ""
+  password: ""
+
+mongod-slave1:
+  addr: "47.244.12.94"
+  port: 27017
+  dbname: "huohu"
+  username: ""
+  password: ""
+
+mysql-master:
+  addr: "47.244.12.94"
+  port: 3306
+  username: "chat"
+  password: "6AGsm2Ljk4pz3pRs"
+  database: "chat"
+
+mysql-slave1:
+  addr: "47.244.12.94"
+  port: 3306
+  username: "chat"
+  password: "6AGsm2Ljk4pz3pRs"
+  database: "chat"
+
+files:
+  imgMaxSize: "5"
+  imgType: "jpg|jpeg|png|gif"
+  mutiImage: true
+  onceImageUpload: 10
+
+  fileMaxSize: "5mb"
+  fileType: "*"
+  mutiFile: true
+
+  videoMaxSize: "5mb"
+  videoType: "*"
+  mutiVideo: true
+
+  voiceMaxSize: "5mb"
+  videoMaxTime: 60
+
+alioss:
+  endpoint: ""
+  accesskey: ""
+  accessSecret: ""
+
+system:
+  passwordPrefix: "cmf_"
+  defaultPassword: "aa123hhh"
+
+kafka:
+  hosts: "127.0.0.1:9091,127.0.0.1:9092,127.0.0.1:9093"
